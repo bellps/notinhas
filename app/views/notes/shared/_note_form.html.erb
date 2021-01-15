@@ -1,0 +1,12 @@
+<%= form_for @note do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.rich_text_area :title %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+   <%= form.submit nil %>
+
+<% end %>
