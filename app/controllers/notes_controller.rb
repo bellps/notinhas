@@ -1,13 +1,12 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [ :show ]
   before_action :set_note, only: [ :show, :edit, :update, :destroy ]
-  before_action :verify_authorized, only: [ :show, :edit, :update, :destroy ]
+  authorize_resource except: [ :index, :new, :create ]
 
   def index
   end
 
   def show
-    
   end
 
   def edit
@@ -53,7 +52,4 @@ class NotesController < ApplicationController
         @note = Note.find(params[:id])
     end
 
-    def verify_authorized
-      authorize @note
-    end
 end

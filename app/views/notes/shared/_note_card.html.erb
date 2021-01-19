@@ -1,17 +1,20 @@
 <% notes.each do |note|%>
-<div>
-    <div> <%= note.title %> </div>
-    <div> <%= note.description %> </div>
-    
-    <%= link_to edit_note_path(note) do %>
-        edit
+    <% if policy(note).show? %>
+    <div>
+        <div> <%= note.title %> </div>
+        <div> <%= note.description %> </div>
+        <%= link_to note_path(note) do %>
+            show
+        <% end %>
+        <% if policy(note).edit? %>
+            <%= link_to edit_note_path(note) do %>
+                edit
+            <% end %>
+            <%= link_to note_path(note), method: :delete do %>
+                delete
+            <% end %>
+        <% end %>
+    </div>
+    <br>
     <% end %>
-    <%= link_to note_path(note) do %>
-        show
-    <% end %>
-     <%= link_to note_path(note), method: :delete do %>
-        delete
-    <% end %>
-</div>
-<br>
 <% end %>

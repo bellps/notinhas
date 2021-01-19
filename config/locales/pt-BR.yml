@@ -1,0 +1,8 @@
+'pt-BR':
+  users:
+    sessions:
+      new: 
+        sign_in: Entrar
+    registrations: 
+      new:
+        sign_up: Criar conta

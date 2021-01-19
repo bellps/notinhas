@@ -1,18 +1,18 @@
 class ProfileController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_user
   before_action :verify_password, only: [:update]
+  before_action :verify_authorized, except: [ :show ]
 
   def show 
   end
 
   def edit
-    authorize @user
   end
 
   def update
     if @user.update(user_params)
-      redirect_to profile_path, notice: 'ok!'
+      redirect_to '/', notice: 'ok!'
     else
       render :edit, notice: 'no!'
     end
@@ -23,16 +23,20 @@ class ProfileController < ApplicationController
 
   private
   def user_params
-      params.require(:user).permit(:nickname, :name, :email)
+      params.require(:user).permit(:nickname, :name, :email, :url_image, :password, :confirm_password)
   end
 
   def set_user
-      @user = User.find(params[:id])
+    @user = User.find_by!(nickname: params[:nickname])
   end
 
   def verify_password
-    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-        params[:user].extract!(:password, :password_confirmation)
+    if params[:user][:password].blank? && params[:user][:confirm_password].blank?
+        params[:user].extract!(:password, :confirm_password)
     end
+  end
+
+  def verify_authorized
+    authorize @user
   end
 end

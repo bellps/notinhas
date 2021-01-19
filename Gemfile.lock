@@ -85,6 +85,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     erubi (1.10.0)
     ffi (1.14.2)
     globalid (0.4.2)
@@ -117,6 +119,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
+    pundit_extra (0.3.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-mini-profiler (2.3.0)
@@ -221,10 +224,12 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.7, >= 4.7.3)
+  devise-i18n
   jbuilder (~> 2.7)
   listen (~> 3.3)
   puma (~> 5.0)
   pundit
+  pundit_extra
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)
   sass-rails (>= 6)

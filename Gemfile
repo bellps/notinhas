@@ -26,7 +26,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'devise-i18n'
 gem 'pundit'
+gem 'pundit_extra'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
