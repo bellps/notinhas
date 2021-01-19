@@ -2,12 +2,9 @@
 <h1><%= @user.nickname%></h1>
 <p>Find me in app/views/profile/index.html.erb</p>
 
-<% if current_user == @user%>
-    <%= link_to  "editar perfil", edit_profile_path(current_user) %>
+<% if policy(@user).show? %>
+    <%= link_to  "editar perfil", edit_profile_path(current_user)%>
     <%= link_to  "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 <% end %>
-
 <br>
 <br>
-suas notinha
-<%= render "notes/shared/note_card", notes: @user.notes %>

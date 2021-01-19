@@ -1,3 +1,3 @@
 TODAS AS NOTINHAS!!!
-<%= link_to  "perfol", profile_index_path %>
+<%= link_to  "perfol", profile_path(current_user) %>
 <%= render "notes/shared/note_card", notes: current_user.notes %>

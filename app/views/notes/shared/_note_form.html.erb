@@ -7,6 +7,12 @@
     <%= form.label :description %>
     <%= form.rich_text_area :description %>
   </div>
+  <div>
+    <%= form.label :public %>
+    <% {true: true, false: false}.each do |key, value| %>
+        <%= form.radio_button :public, key %> <%= value %> <br>
+    <% end %> 
+  </div>
    <%= form.submit nil %>
 
 <% end %>
