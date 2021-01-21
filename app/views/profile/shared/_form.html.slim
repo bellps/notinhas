@@ -1,0 +1,20 @@
+= form_for @user, url: profile_path do |form|
+  .field
+    = form.label :nickname
+    = form.text_area :nickname
+  .field
+    = form.label :name
+    = form.text_area :name
+  .field
+    = form.label :email
+    = form.email_field :email
+  .field
+    = form.label :password
+    = form.password_field :password
+  .field
+    = form.label :confirm_password
+    = form.password_field :confirm_password
+  .field
+    = form.label :url_image
+    = form.text_area :url_image
+  = form.submit nil

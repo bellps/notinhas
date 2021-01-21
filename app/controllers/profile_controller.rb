@@ -18,9 +18,6 @@ class ProfileController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
   def user_params
       params.require(:user).permit(:nickname, :name, :email, :url_image, :password, :confirm_password)

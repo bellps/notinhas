@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/', to: "notes#index"
   resources :notes 
 
-  resources :profile, param: :nickname, except: [:new, :create] 
+  resources :profile, param: :nickname, except: [:new, :create, :destroy] 
 
   devise_for :admins, skip: [:registrations]
   devise_for :users, controllers: { registrations: 'users/registrations' }

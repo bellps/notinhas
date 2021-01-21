@@ -2,3 +2,5 @@
 <%= render "users/shared/error_messages", resource: @user %>
 <p>Find me in app/views/profile/edit.html.erb</p>
 <%= render  "profile/shared/form" %>
+<br>
+<p><%= button_to 'Quero cancelar minha conta', registration_path(@user), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
