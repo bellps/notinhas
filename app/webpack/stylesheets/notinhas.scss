@@ -1,0 +1,34 @@
+// Place all the styles related to the Notinhas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'variables';
+
+.card{
+    background-image: linear-gradient(
+        to left top,
+        rgba(27, 27, 27, 0.911) 0%,
+        $base-dark 100%
+    ) !important;
+    background-image: -webkit-linear-gradient(
+        left top, 
+        rgba(27, 27, 27, 0.911) 0%,
+        $base-dark 100%
+    ) !important;
+}
+
+.card-text{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+trix-editor, .trix-button{
+    color: $base-dark;
+    background-color: $base-light !important;
+}
+
+.trix-active{
+    background-color: #cccccc !important;
+}

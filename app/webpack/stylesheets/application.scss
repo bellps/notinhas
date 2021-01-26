@@ -1,0 +1,47 @@
+@import "bootstrap";
+@import "trix/dist/trix";
+@import "variables";
+@import "notinhas";
+@import "profile";
+@import "actiontext";
+
+@mixin btn-indigo-default() {
+    background-color: $indigo-500;
+    color: white;
+    &:hover {
+        background-color: $indigo-700;
+        color: white;
+    }
+}
+
+body{
+    background-color: $base-dark;
+    color: $base-light;
+}
+
+.bg-indigo{
+    background-color: $indigo-500;
+}
+
+.btn-indigo{
+    @include btn-indigo-default();
+}
+
+.btn-indigo-rounded{
+    @include btn-indigo-default();
+    position: fixed;
+    bottom: 2%;
+    right: 1%;
+    font-size: 1.8rem; 
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+a{
+    color: $base-light;
+    text-decoration: none;
+    &:hover {
+        color: $indigo-400;
+    }
+}

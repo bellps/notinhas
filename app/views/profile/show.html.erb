@@ -1,11 +1,19 @@
-<h1><%= @user.name%></h1>
-<h1><%= @user.nickname%></h1>
-<p>Find me in app/views/profile/index.html.erb</p>
+<div class="mt-4 mb-4 row">
+    <div class="col-md-2">
+        <img class="rounded-circle" width="100%" src="<%= @user.url_image? ? @user.url_image : "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/user.png" %>" alt="">
+    </div>
+    <div class="col-md-10">
+        <h1><%= @user.name%></h1>
+        <p class="text-muted"><%= @user.nickname%></p>
 
-<% if policy(@user).show? %>
-    <%= link_to  "editar perfil", edit_profile_path(current_user)%>
-    <%= link_to  "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-<% end %>
-<br>
-<br>
+        <% if policy(@user).show? %>
+            <%= link_to edit_profile_path(current_user) do %>
+                <button class="btn btn-indigo"> Editar perfil </button>
+            <% end %>
+            <%= link_to  destroy_user_session_path, method: :delete do%>
+                <button class="btn btn-danger"> Sair </button>
+            <% end %>
+        <% end %>
+    </div>
+</div>
 <%= render "notes/shared/note_card", notes: @user.notes %>

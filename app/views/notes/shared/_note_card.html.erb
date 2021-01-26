@@ -1,20 +1,28 @@
 <% notes.each do |note|%>
     <% if policy(note).show? %>
-    <div>
-        <div> <%= note.title %> </div>
-        <div> <%= note.description %> </div>
-        <%= link_to note_path(note) do %>
-            show
-        <% end %>
-        <% if policy(note).edit? %>
-            <%= link_to edit_note_path(note) do %>
-                edit
-            <% end %>
-            <%= link_to note_path(note), method: :delete do %>
-                delete
-            <% end %>
-        <% end %>
+    <div class="card shadow">
+        <div class="card-body">
+            <h5 class="card-title"><%= note.title %></h5>
+            <div class="card-text"><%= note.description %></div>
+            <div class="text-end">
+                <%= link_to note_path(note), class: "card-link" do %>
+                    <i class="fa fa-eye"></i>
+                <% end %>
+                <% if policy(note).edit? %>
+                    <%= link_to edit_note_path(note), class: "card-link" do %>
+                        <i class="fas fa-pencil-alt"></i>
+                    <% end %>
+                    <%= link_to note_path(note), method: :delete, class: "card-link" do %>
+                        <i class="fa fa-trash"></i>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
     </div>
     <br>
     <% end %>
 <% end %>
+
+<script>
+
+</script>

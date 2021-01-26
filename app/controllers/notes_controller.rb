@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  layout "site"
   before_action :authenticate_user!, except: [ :show ]
   before_action :set_note, only: [ :show, :edit, :update, :destroy ]
   authorize_resource except: [ :index, :new, :create ]

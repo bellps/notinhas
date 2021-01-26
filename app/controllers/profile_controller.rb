@@ -1,4 +1,5 @@
 class ProfileController < ApplicationController
+  layout "site"
   before_action :authenticate_user!
   before_action :set_user
   before_action :verify_password, only: [:update]
@@ -20,7 +21,7 @@ class ProfileController < ApplicationController
 
   private
   def user_params
-      params.require(:user).permit(:nickname, :name, :email, :url_image, :password, :confirm_password)
+      params.require(:user).permit(:nickname, :name, :email, :url_image, :password, :password_confirmation)
   end
 
   def set_user
@@ -28,8 +29,8 @@ class ProfileController < ApplicationController
   end
 
   def verify_password
-    if params[:user][:password].blank? && params[:user][:confirm_password].blank?
-        params[:user].extract!(:password, :confirm_password)
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+        params[:user].extract!(:password, :password_confirmation)
     end
   end
 

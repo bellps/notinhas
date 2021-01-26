@@ -1,6 +1,9 @@
-<h1>Profile#edit</h1>
 <%= render "users/shared/error_messages", resource: @user %>
-<p>Find me in app/views/profile/edit.html.erb</p>
+<%= render  "notes/shared/back" %>
+<h1 class="mt-2">Editar perfil</h1>
 <%= render  "profile/shared/form" %>
-<br>
-<p><%= button_to 'Quero cancelar minha conta', registration_path(@user), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+
+<div class="mt-4">
+    <h2><em>"Cansei!"</em></h2>
+    <%= button_to 'Quero exlcuir minha conta', registration_path(@user), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-danger" %>
+</div>
