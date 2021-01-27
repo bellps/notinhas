@@ -9,11 +9,12 @@ class ProfileController < ApplicationController
   end
 
   def edit
-  end
+    @nicknames = User.all.map(&:nickname)
+  end 
 
   def update
     if @user.update(user_params)
-      redirect_to '/', notice: 'ok!'
+      redirect_to profile_path(@user), notice: 'ok!'
     else
       render :edit, notice: 'no!'
     end

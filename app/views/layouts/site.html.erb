@@ -36,11 +36,14 @@
                 </div>
             </div>
         </nav>
+        
         <div class="container">
             <% if flash[:notice]%>
-            <div id='notice'><%= flash[:notice] %></div>
+                <div id='notice'><%= flash[:notice] %></div>
             <% end %>
             <%= yield %>
+            
+
         </div>
     
   </body>

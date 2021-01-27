@@ -1,9 +1,9 @@
 @import "bootstrap";
 @import "trix/dist/trix";
-@import "variables";
-@import "notinhas";
-@import "profile";
-@import "actiontext";
+@import "stylesheets/variables";
+@import "stylesheets/notinhas";
+@import "stylesheets/profile";
+@import "stylesheets/actiontext";
 
 @mixin btn-indigo-default() {
     background-color: $indigo-500;
