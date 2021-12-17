@@ -1,0 +1,26 @@
+= form_for @user, url: profile_path, class:"needs-validation" do |f|
+  .row.mt-3
+    .col.has_validation
+      = f.label :nickname
+      = f.text_field :nickname, class: "form-control", readonly: true
+      %small.form-text.text-muted
+        Você não pode alterar seu nick!
+      #feedback
+    .col
+      = f.label :name
+      = f.text_field :name, class: "form-control"
+  .mt-3
+    = f.label :email
+    = f.email_field :email, class: "form-control", required: true
+  .row.mt-3
+    .col.has_validation
+      = f.label :password
+      = f.password_field :password, class: "form-control"
+    .col
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: "form-control"
+  .mt-3
+    = f.label :url_image
+    = f.url_field :url_image, class: "form-control"
+  = f.submit nil, class: "mt-3 btn btn-indigo"
+

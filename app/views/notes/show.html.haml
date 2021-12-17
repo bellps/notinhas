@@ -1,0 +1,12 @@
+= render  "notes/shared/back"
+%h1.mt-2
+  = @note.title
+%h6.mb-3.text-muted
+  por
+  \#{link_to profile_path(@note.user) do}
+    = @note.user.nickname
+%div
+  = @note.description
+= link_to edit_note_path(@note) do
+  %button.btn.btn-indigo-rounded
+    %i.fas.fa-pencil-alt

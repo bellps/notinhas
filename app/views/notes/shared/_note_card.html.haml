@@ -1,0 +1,17 @@
+- notes.each do |note|
+  - if policy(note).show?
+    .card.shadow
+      .card-body
+        %h5.card-title= note.title
+        .card-text= note.description
+        .text-end
+          = link_to note_path(note), class: "card-link" do
+            %i.fa.fa-eye
+          - if policy(note).edit?
+            = link_to edit_note_path(note), class: "card-link" do
+              %i.fas.fa-pencil-alt
+            = link_to note_path(note), method: :delete, class: "card-link" do
+              %i.fa.fa-trash
+    %br/
+:javascript
+

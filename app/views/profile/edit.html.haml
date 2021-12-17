@@ -1,0 +1,8 @@
+= render "users/shared/error_messages", resource: @user
+= render  "notes/shared/back"
+%h1.mt-2 Editar perfil
+= render  "profile/shared/form"
+.mt-4
+  %h2
+    %em "Cansei!"
+  = button_to 'Quero exlcuir minha conta', registration_path(@user), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-danger"

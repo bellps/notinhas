@@ -1,0 +1,15 @@
+= form_for @note do |form|
+  .field.mt-3
+    = form.label :title, class:"form-label"
+    = form.rich_text_area :title
+  .field.mt-3
+    = form.label :description, class:"form-label"
+    = form.rich_text_area :description
+  .mt-4.form-check
+    = form.label :public,                                                            |
+      class:"form-check-label",                                                      |
+      'data-bs-toggle':"tooltip",                                                    |
+      'data-bs-placement':"top",                                                     |
+      title:"Se não definir a nota como pública, ela será visível apenas para você." |
+    = form.check_box :public, class:"form-check-input"
+  = form.submit nil, class: "btn btn-indigo mt-1"

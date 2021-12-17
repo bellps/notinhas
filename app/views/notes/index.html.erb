@@ -1,9 +1,0 @@
-<div class="mt-4">
-    <h1>Todas as notinhas</h1>
-    <%= render "notes/shared/note_card", notes: current_user.notes %>
-</div>
-<%= link_to new_note_path do %>
-    <button class="btn btn-indigo-rounded"> 
-        <i class="fa fa-plus"></i>
-    </button> 
-<% end %>

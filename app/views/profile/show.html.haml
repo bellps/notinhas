@@ -1,0 +1,12 @@
+.mt-4.mb-4.row
+  .col-md-2
+    %img.rounded-circle{:alt => "", :src => "#{@user.url_image? ? @user.url_image : "https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/user.png"}", :width => "100%"}/
+  .col-md-10
+    %h1= @user.name
+    %p.text-muted= @user.nickname
+    - if policy(@user).show?
+      = link_to edit_profile_path(current_user) do
+        %button.btn.btn-indigo Editar perfil
+      = link_to  destroy_user_session_path, method: :delete do
+        %button.btn.btn-danger Sair
+= render "notes/shared/note_card", notes: @user.notes

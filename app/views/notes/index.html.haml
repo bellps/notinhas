@@ -1,0 +1,6 @@
+.mt-4
+  %h1 Todas as notinhas
+  = render "notes/shared/note_card", notes: current_user.notes
+= link_to new_note_path do
+  %button.btn.btn-indigo-rounded
+    %i.fa.fa-plus

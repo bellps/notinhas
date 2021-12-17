@@ -1,7 +1,7 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: app/webpack
+  source_path: app/javascript
   source_entry_path: packs
   public_root_path: public
   public_output_path: packs
@@ -16,7 +16,7 @@ default: &default
   cache_manifest: false
 
   # Extract and emit a css file
-  extract_css: true
+  extract_css: false
 
   static_assets_extensions:
     - .jpg
@@ -35,7 +35,6 @@ default: &default
   extensions:
     - .mjs
     - .js
-    - .js.erb
     - .sass
     - .scss
     - .css
@@ -50,8 +49,7 @@ default: &default
 
 development:
   <<: *default
-  compile: false
-  public_out_path: packs/development
+  compile: true
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:

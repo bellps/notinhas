@@ -3,14 +3,7 @@ class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
   before_action :verify_password, only: [:update]
-  before_action :verify_authorized, except: [ :show ]
-
-  def show 
-  end
-
-  def edit
-    @nicknames = User.all.map(&:nickname)
-  end 
+  before_action :verify_authorized, except: [:show]
 
   def update
     if @user.update(user_params)
@@ -21,8 +14,9 @@ class ProfileController < ApplicationController
   end
 
   private
+
   def user_params
-      params.require(:user).permit(:nickname, :name, :email, :url_image, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :url_image, :password, :password_confirmation)
   end
 
   def set_user
@@ -30,9 +24,9 @@ class ProfileController < ApplicationController
   end
 
   def verify_password
-    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-        params[:user].extract!(:password, :password_confirmation)
-    end
+    return unless params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+
+    params[:user].extract!(:password, :password_confirmation)
   end
 
   def verify_authorized
